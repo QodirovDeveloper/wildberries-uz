@@ -7,8 +7,8 @@ function Products({ products }) {
       {/* <div className="container mx-auto lg:pr-7  lg:pl-7 pr-4 pl-2 mt-10"> */}
         {/* <div className="grid xl:grid-cols-6 gap-4 lg:grid-cols-4 grid-cols-2 font-semibold"> */}
           <>
-            <div>
-              <div className="relative cursor-pointer rounded-xl  border-2">
+            <div className="mb-6">
+              <div className="relative cursor-pointer rounded-xl  border border-black/30 ">
                 <figure>
                   <img
                     className="card-image rounded-xl"

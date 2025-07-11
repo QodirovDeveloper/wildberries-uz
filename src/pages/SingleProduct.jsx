@@ -12,7 +12,7 @@ function SingleProduct() {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center mt-50">
         <span className="loading loading-spinner loading-xl"></span>
       </div>
     );
@@ -27,16 +27,13 @@ function SingleProduct() {
       {product && (
         <div className="max-w-6xl mx-auto p-6 bg-white rounded-xl shadow-lg mt-10">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left: Image Gallery */}
             <div className="flex flex-col gap-4 w-full lg:w-1/2">
-              {/* Main Image */}
               <img
                 src={mainImage || product.thumbnail}
                 alt={product.title}
                 className="w-full max-h-[400px] object-contain border rounded-lg shadow"
               />
 
-              {/* Gallery Thumbnails */}
               <div className="flex gap-2 overflow-x-auto">
                 {product.images?.map((img, idx) => (
                   <img
@@ -50,30 +47,45 @@ function SingleProduct() {
               </div>
             </div>
 
-            {/* Right: Product Info */}
             <div className="w-full lg:w-1/2 flex flex-col gap-3">
               <h1 className="text-3xl font-bold">{product.title}</h1>
               <p className="text-gray-600 text-lg">{product.description}</p>
 
               <div className="text-xl font-semibold text-green-600">
-                {(product.price - (product.price * product.discountPercentage / 100)).toFixed(2)} ₽
+                {(
+                  product.price -
+                  (product.price * product.discountPercentage) / 100
+                ).toFixed(2)}{" "}
+                ₽
                 <span className="text-sm line-through text-gray-400 ml-2">
-                  {(product.price)} ₽
+                  {product.price} ₽
                 </span>
               </div>
 
               <div className="text-yellow-500">⭐ {product.rating}</div>
 
               <ul className="text-sm text-gray-700 space-y-1 mt-2">
-                <li><strong>Stock:</strong> {product.stock}</li>
-                <li><strong>Brand:</strong> {product.brand}</li>
-                <li><strong>Category:</strong> {product.category}</li>
-                <li><strong>SKU:</strong> {product.sku}</li>
+                <li>
+                  <strong>Stock:</strong> {product.stock}
+                </li>
+                <li>
+                  <strong>Brand:</strong> {product.brand}
+                </li>
+                <li>
+                  <strong>Category:</strong> {product.category}
+                </li>
+                <li>
+                  <strong>SKU:</strong> {product.sku}
+                </li>
                 {product.warrantyInformation && (
-                  <li><strong>Warranty:</strong> {product.warrantyInformation}</li>
+                  <li>
+                    <strong>Warranty:</strong> {product.warrantyInformation}
+                  </li>
                 )}
                 {product.returnPolicy && (
-                  <li><strong>Return Policy:</strong> {product.returnPolicy}</li>
+                  <li>
+                    <strong>Return Policy:</strong> {product.returnPolicy}
+                  </li>
                 )}
               </ul>
 
@@ -88,7 +100,6 @@ function SingleProduct() {
                 </div>
               )}
 
-              {/* Tags */}
               {product.tags && (
                 <div className="mt-3 flex flex-wrap gap-2">
                   {product.tags.map((tag, i) => (
@@ -104,7 +115,6 @@ function SingleProduct() {
             </div>
           </div>
 
-          {/* Reviews */}
           {product.reviews && (
             <div className="mt-10">
               <h2 className="text-xl font-bold mb-3">Отзывы</h2>
@@ -114,7 +124,9 @@ function SingleProduct() {
                     <span className="font-semibold text-sm">
                       {rev.reviewerName}
                     </span>
-                    <span className="text-yellow-500 text-sm">⭐ {rev.rating}</span>
+                    <span className="text-yellow-500 text-sm">
+                      ⭐ {rev.rating}
+                    </span>
                   </div>
                   <p className="text-gray-600 text-sm">{rev.comment}</p>
                 </div>

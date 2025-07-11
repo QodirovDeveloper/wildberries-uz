@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { GlobalContext } from "../context/globalContext";
 
 function Navbar() {
+  const { basket } = useContext(GlobalContext);
   return (
     <>
       <div>
@@ -73,7 +76,7 @@ function Navbar() {
                 <button className="cursor-pointer font-semibold max-lg:hidden">
                   <span className="relative text-[20px] text-white">
                     <p className="products-counter absolute -top-3 -right-3 bg-red-500 text-sm  px-1.5 flex items-center rounded-full">
-                      {0}
+                      {basket}
                     </p>
                     <i className="fa-solid fa-cart-shopping"></i>
                   </span>
@@ -111,7 +114,7 @@ function Navbar() {
           </li>
           <span className="relative text-[20px] text-white">
             <p className="products-counter absolute -top-3 -right-3 bg-red-500 text-sm  px-1.5 flex items-center rounded-full">
-              {0}
+              {basket}
             </p>
             <li>
               <a href="/">

@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import MainLayout from "./layout/MainLayout";
 import SingleProduct from "./pages/SingleProduct";
+import { GlobalContextProvider } from "./context/globalContext";
 
 function App() {
   const routes = createBrowserRouter([

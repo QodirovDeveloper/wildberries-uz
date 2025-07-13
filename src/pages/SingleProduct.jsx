@@ -25,7 +25,7 @@ function SingleProduct() {
   return (
     <>
       {product && (
-        <div className="max-w-6xl mx-auto p-6 bg-white rounded-xl shadow-lg mt-10">
+        <div className="mt-36 lg:mt-50 max-w-6xl mx-auto p-6 bg-white rounded-xl shadow-lg">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="flex flex-col gap-4 w-full lg:w-1/2">
               <img

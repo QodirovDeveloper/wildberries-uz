@@ -2,15 +2,27 @@ import { useContext, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/globalContext";
-
+import { useNavigate } from "react-router-dom";
 
 function Products({ products }) {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const {dispatch} = useContext(GlobalContext)
+  const { dispatch } = useContext(GlobalContext);
+  const [liked, setLiked] = useState(false);
+  const [inCart, setInCart] = useState(false);
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    if (!inCart) {
+      dispatch({ type: "ADD_PRODUCT", payload: products });
+      setInCart(true);
+    } else {
+      navigate("/cart");
+    }
+  };
 
   return (
     <>
-      <div className="mb-6">
+      <div>
         <div className="relative cursor-pointer rounded-xl border border-black/30">
           <Link to={`/singleProduct/${products.id}`}>
             <figure className="w-full h-[300px] overflow-hidden rounded-xl bg-gray-300 flex items-center justify-center">
@@ -28,8 +40,11 @@ function Products({ products }) {
             </figure>
           </Link>
 
-          <div className="absolute right-0 top-0 text-red-600 p-0.5 rounded-tr-xl text-2xl ">
-            <FaRegHeart />
+          <div
+            onClick={() => setLiked(!liked)}
+            className="absolute right-0 top-0 text-red-600 p-0.5 rounded-tr-xl text-2xl "
+          >
+            {liked ? <FaHeart /> : <FaRegHeart />}
           </div>
 
           <div className="absolute bottom-2 left-3">
@@ -74,8 +89,18 @@ function Products({ products }) {
               </span>
             </p>
           </div>
-          <button onClick={()=>dispatch({type:"ADD_PRODUCT"})} className="buy-button w-full cursor-pointer mt-4 text-white bg-[#A439F9] rounded-xl p-1">
-            <i className="fa-solid fa-cart-shopping"></i>
+
+          <button
+            onClick={handleAddToCart}
+            className={`buy-button w-full cursor-pointer mt-4 text-white ${
+              inCart ? "bg-[#F1DFFF]" : "bg-[#A439F9]"
+            } rounded-xl p-1`}
+          >
+            {inCart ? (
+              <span className="text-[#a439f9]">В корзине</span>
+            ) : (
+              <i className="fa-solid fa-cart-shopping"></i>
+            )}
           </button>
         </div>
       </div>

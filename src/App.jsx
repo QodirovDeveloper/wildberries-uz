@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import MainLayout from "./layout/MainLayout";
 import SingleProduct from "./pages/SingleProduct";
 import { GlobalContextProvider } from "./context/globalContext";
+import ScrollProgress from './components/ScrollProgress'
+import Cart from './pages/Cart'
 
 function App() {
   const routes = createBrowserRouter([
@@ -31,6 +33,10 @@ function App() {
         {
           path: "/singleProduct/:id",
           element: <SingleProduct />,
+        },
+        {
+          path: "cart",
+          element: <Cart/>
         },
       ],
     },

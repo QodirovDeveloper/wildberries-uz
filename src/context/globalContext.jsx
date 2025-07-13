@@ -7,15 +7,27 @@ const changeState = (state, action) => {
 
   switch (type) {
     case "ADD_PRODUCT":
-      return { ...state, basket: state.basket + 1 };
+      return {
+        ...state,
+        basket: [...state.basket, payload],
+      };
+
+    case "SET_SEARCH_TERM":
+      return {
+        ...state,
+        searchTerm: payload,
+      };
+
     default:
       return state;
   }
 };
 
+
 export const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(changeState, {
-    basket: 0,
+    basket: [],
+    searchTerm: "",
   });
 
   return (

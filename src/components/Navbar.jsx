@@ -1,13 +1,21 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { GlobalContext } from "../context/globalContext";
+import Search from "./Search";
 
 function Navbar() {
   const { basket } = useContext(GlobalContext);
+  const { dispatch } = useContext(GlobalContext);
+  const handleSearch = (e) => {
+    dispatch({
+      type: "SET_SEARCH_TERM",
+      payload: e.target.value.toLowerCase(),
+    });
+  };
   return (
     <>
       <div>
-        <div className="bg-gradient-to-l left-0 right-0  top-0 fi xed z-[999999] from-[#7C1AF8] to-[#ED3CCA] pb-3 text-white/60 font-sansz">
+        <div className="bg-gradient-to-l left-0 right-0  top-0 fixed z-[999999] from-[#7C1AF8] to-[#ED3CCA] pb-3 text-white/60 font-sansz">
           <div className="container mx-auto lg:pr-7 lg:pl-7 pr-2 pl-2">
             {/* nav top */}
             <div className="flex items-center pt-3 justify-between text-sm max-lg:hidden">
@@ -45,21 +53,7 @@ function Navbar() {
                 </a>
                 <div className="p-3"></div>
               </div>
-              <form className="relative max-w-[1500px]x w-full rounded-xl border-0 bg-primary-content pl-4 lg:py-4 py-2">
-                <input
-                  type="text"
-                  id="search"
-                  placeholder="Найти на Wildberries"
-                  className=" max-w-[600px] focus:border-none border-0 focus:ring-0 w-full text-black placeholder-gray-400 focus:outline-none"
-                />
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"></div>
-                <button
-                  type="submit"
-                  className="absolute text-[#C8C8D1] right-0 top-0 text-2xl bottom-0 px-4 rounded-br-full rounded-tr-full"
-                >
-                  <i className="fa-solid fa-camera"></i>
-                </button>
-              </form>
+              <Search />
               <div className="flex items-center ml-2 gap-5">
                 <button className="cursor-pointer font-semibold">
                   <span className="text-[20px] text-white">
@@ -73,15 +67,18 @@ function Navbar() {
                   </span>
                   <p className="">Войти</p>
                 </button>
-                <button className="cursor-pointer font-semibold max-lg:hidden">
-                  <span className="relative text-[20px] text-white">
-                    <p className="products-counter absolute -top-3 -right-3 bg-red-500 text-sm  px-1.5 flex items-center rounded-full">
-                      {basket}
-                    </p>
-                    <i className="fa-solid fa-cart-shopping"></i>
-                  </span>
-                  <p className="">Корзина</p>
-                </button>
+
+                <NavLink to="/cart">
+                  <button className="cursor-pointer font-semibold max-lg:hidden">
+                    <span className="relative text-[20px] text-white">
+                      <p className="products-counter absolute -top-3 -right-3 bg-red-500 text-sm px-1.5 flex items-center rounded-full">
+                        {basket.length}
+                      </p>
+                      <i className="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    <p>Корзина</p>
+                  </button>
+                </NavLink>
               </div>
             </div>
 
@@ -112,16 +109,17 @@ function Navbar() {
               <i className="fa-solid fa-bars"></i>
             </a>
           </li>
-          <span className="relative text-[20px] text-white">
-            <p className="products-counter absolute -top-3 -right-3 bg-red-500 text-sm  px-1.5 flex items-center rounded-full">
-              {basket}
-            </p>
-            <li>
-              <a href="/">
+          <NavLink to="/cart">
+            <span className="relative text-[20px] text-white">
+              <p className="products-counter absolute -top-3 -right-3 bg-red-500 text-sm  px-1.5 flex items-center rounded-full">
+                {basket.length}
+              </p>
+              <li>
                 <i className="fa-solid fa-cart-shopping text-[#A439F9]"></i>
-              </a>
-            </li>
-          </span>
+              </li>
+            </span>
+          </NavLink>
+
           <li>
             <a href="/">
               <i className="fa-solid fa-heart"></i>

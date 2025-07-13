@@ -12,6 +12,24 @@ const changeState = (state, action) => {
         basket: [...state.basket, payload],
       };
 
+    case "DECREMENT_PRODUCT":
+      const index = state.basket.findIndex((item) => item.id === payload.id);
+      if (index !== -1) {
+        const newBasket = [...state.basket];
+        newBasket.splice(index, 1); 
+        return {
+          ...state,
+          basket: newBasket,
+        };
+      }
+      return state;
+
+    case "REMOVE_PRODUCT":
+      return {
+        ...state,
+        basket: state.basket.filter((item) => item.id !== payload.id),
+      };
+
     case "SET_SEARCH_TERM":
       return {
         ...state,

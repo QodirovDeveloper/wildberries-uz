@@ -11,6 +11,10 @@ import SingleProduct from "./pages/SingleProduct";
 import { GlobalContextProvider } from "./context/globalContext";
 import ScrollProgress from './components/ScrollProgress'
 import Cart from './pages/Cart'
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
   const routes = createBrowserRouter([
@@ -20,7 +24,11 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home />,
+          element: (
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "/about",
@@ -32,15 +40,33 @@ function App() {
         },
         {
           path: "/singleProduct/:id",
-          element: <SingleProduct />,
+          element: (
+            <ProtectedRoute>
+              <SingleProduct />
+            </ProtectedRoute>
+          ),
         },
         {
-          path: "cart",
-          element: <Cart/>
+          path: "/cart",
+          element: (
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          ),
         },
       ],
     },
+
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
   ]);
+
   return <RouterProvider router={routes} />;
 }
 

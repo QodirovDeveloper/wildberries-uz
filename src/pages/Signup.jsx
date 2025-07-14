@@ -15,7 +15,7 @@ function Signup() {
       return;
     }
 
-    signup(form); 
+    signup(form);
     navigate("/login");
   };
 
@@ -34,9 +34,13 @@ function Signup() {
             <input
               type="email"
               id="email"
+              value={form.email}
               className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="example@mail.com"
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              onChange={(e) => {
+                setForm({ ...form, email: e.target.value });
+                setError("");
+              }}
             />
           </div>
 
@@ -47,9 +51,13 @@ function Signup() {
             <input
               type="password"
               id="password"
+              value={form.password}
               className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="********"
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              onChange={(e) => {
+                setForm({ ...form, password: e.target.value });
+                setError("");
+              }}
             />
           </div>
 

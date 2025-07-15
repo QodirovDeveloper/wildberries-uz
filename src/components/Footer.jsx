@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -8,134 +9,135 @@ function Footer() {
           <div className="flex max-lg:flex-col items-start max-lg:gap-2 justify-between">
             <ul className="*:p-0.5 ">
               <li>
-                <a href="#">Покупателям</a>
+                <Link to="/">Покупателям</Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Частые вопросы
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Доставка по клику от ПВЗ
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Юридическая информация
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="*:p-0.5 ">
               <li>
-                <a href="#">Продавцам и партнёрам</a>
+                <Link to={"/"}>Продавцам и партнёрам</Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Продавать товары
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Открыть пункт выдачи
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Предложить помещение
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Развозить грузы
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Доставлять заказы
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="*:p-0.5 ">
               <li>
-                <a href="#">Наши проекты</a>
+                <Link to={"/"}>Наши проекты</Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   WB Guru
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   WB Stream
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   WB Track
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="*:p-0.5 ">
               <li>
-                <a href="#">Компания</a>
+                <Link Компания to={"/"}></Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   О нас
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Пресс‑служба
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Контакты
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Вакансии
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
-                  Сообщить о мошенничестве
-                </a>
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
+                  Сообщить o мошенничестве
+                </Link>
               </li>
               <li>
-                <a className="text-gray-500 max-lg:hidden" href="#">
+                <Link className="text-gray-500 max-lg:hidden" to={"/"}>
                   Социальные сети
-                </a>
+                </Link>
               </li>
             </ul>
-            {/* <a href="#" className=" max-lg:hidden">
-            <img src="/qr-apps.svg" alt="qr-apps">
-          </a> */}
+
             <img src="/qr-apps.svg" alt="" />
           </div>
           <div className="flex justify-between text-gray-500">
             <div className="">
               <p>© Wildberries 2004–2025. Все права защищены.</p>
               <p>
-                Применяются <a href="#">рекомендательные технологии</a>
+                <Link to={"/"}>рекомендательные технологии</Link>
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <a href="#">
-                <i className="fa-brands fa-vk"></i>
-              </a>
-              <a href="#">
-                <i className="fa-brands fa-square-odnoklassniki"></i>
-              </a>
-              <a href="#">
-                <i className="fa-brands fa-telegram"></i>
-              </a>
-              <a href="#">
-                <i className="fa-brands fa-youtube"></i>
-              </a>
+              <Link to={"/"}></Link>
+
+              <i className="fa-brands fa-vk"></i>
+
+              <Link to={"/"}></Link>
+
+              <i className="fa-brands fa-square-odnoklassniki"></i>
+
+              <Link to={"/"}></Link>
+
+              <i className="fa-brands fa-telegram"></i>
+
+              <Link to={"/"}></Link>
+
+              <i className="fa-brands fa-youtube"></i>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GlobalContext } from "../context/globalContext";
 import Search from "./Search";
 
@@ -48,9 +48,9 @@ function Navbar() {
             {/* nav bottom  */}
             <div className="flex items-center justify-between gap-3 pt-3">
               <div className="flex items-center gap-3 max-lg:hidden">
-                <a className="w-[216px]" href="/">
+                <Link className="w-[216px]" to={"/"}>
                   <img src="/logoWb.svg" alt="logo" />
-                </a>
+                </Link>
                 <div className="p-3"></div>
               </div>
               <Search />
@@ -100,14 +100,14 @@ function Navbar() {
       <nav className="lg:hidden z-[9999999] fixed bottom-0 left-0 w-full bg-white border-zinc-200 text-[#C8C8D1] py-4">
         <ul className="flex justify-evenly text-xl sm:text-2xl">
           <li>
-            <a href="/">
+            <Link to={"/"}>
               <i className="fa-solid fa-house"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <Link to={"/"}>
               <i className="fa-solid fa-bars"></i>
-            </a>
+            </Link>
           </li>
           <NavLink to="/cart">
             <span className="relative text-[20px] text-white">
@@ -121,14 +121,14 @@ function Navbar() {
           </NavLink>
 
           <li>
-            <a href="/">
+            <Link to={"/"}>
               <i className="fa-solid fa-heart"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <Link to={"/"}>
               <i className="fa-solid fa-user"></i>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
